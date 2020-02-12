@@ -8,6 +8,26 @@ namespace REG_MARK_LIB
 {
     public class Class1
     {
-        bool CheckMark(String mark)
+        bool CheckMark(string mark)
+        {
+            return true;
+        }
+
+        string GetNextMarkAfter(string mark)
+        {
+            string nextMarkAfter = "";
+            return nextMarkAfter;
+        }
+
+        string GetNextMarkAfterInRange(string prevMark, string rangeStart, string rangeEnd)
+        {
+            string NextMarkAfterInRange = "";
+            return NextMarkAfterInRange;
+        }
+
+        int GetCombinationsCountInRange(string mark1, string mark2)
+        {
+            int 
+        }
     }
 }
