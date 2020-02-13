@@ -23,5 +23,17 @@ namespace WindowsFormsApp1
         {
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Class1 vinLib = new Class1();
+            if (vinLib.CheckVIN(textBox1.Text))
+            {
+                MessageBox.Show("VIN верный!");
+            } else
+            {
+                MessageBox.Show("VIN не верный!");
+            }
+        }
     }
 }
