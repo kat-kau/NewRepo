@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace REG_MARK_LIB
 {
-    public class Class1
+    public class RegMarkLibClass
     {
         bool CheckMark(string mark)
         {
@@ -27,7 +27,8 @@ namespace REG_MARK_LIB
 
         int GetCombinationsCountInRange(string mark1, string mark2)
         {
-            int 
+            int CombinationsCountInRange = 0;
+            return CombinationsCountInRange;
         }
     }
 }
