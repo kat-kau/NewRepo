@@ -14,19 +14,38 @@ namespace VIN_LIB
             string pattern = @"^[A-HJ-NPR-Z\d]{13}\d{4}$";
 
             string vinHash = vin.Replace('A','1').Replace('B','2').Replace('C','3').Replace('D', '4').Replace('E', '5').Replace('F', '6').Replace('G', '7').Replace('H', '8').Replace('J', '1').Replace('K', '2').Replace('L', '3').Replace('M', '4').Replace('N', '5').Replace('P', '7').Replace('R', '9').Replace('S', '2').Replace('T', '3').Replace('U', '4').Replace('V', '5').Replace('W', '6').Replace('X', '7').Replace('Y', '8').Replace('Z', '9');
-
+            char nineNumberChar = ' ';
             // vinHash = string.Join("", vinHash.Select(x => x + " "));
 
-            int[] position = { };
+            int[] position = { 8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2};
             int[] vinHashNum = Array.ConvertAll(vinHash.Split(), int.Parse);
 
-            int nineNumber;
+            int nineNumber = 0;
+            bool vinHashBool = false;
+
             for (int i = 0; i <= vinHashNum.Length; i++)
             {
-                nineNumber = vinHashNum[i] 
+                nineNumber = nineNumber + vinHashNum[i] * position[i];
             }
 
-            if (Regex.IsMatch(vin, pattern))
+            nineNumber = nineNumber % 11;
+
+            if (nineNumber < 10)
+            {
+                nineNumberChar = (char)nineNumber;
+            } else if (nineNumber == 10 )
+            {
+                nineNumberChar = 'X';
+            }
+
+            char[] vinNum = vin.ToCharArray();
+
+            if(vinNum[8] == nineNumberChar)
+            {
+                vinHashBool = true;
+            } 
+
+            if ((Regex.IsMatch(vin, pattern)) && vinHashBool)
             {
                 return true;
             } else return false;
