@@ -10,7 +10,7 @@ namespace VIN_LIB
 {
     public class Class1
     {
-        public bool CheckVIN(string vin)
+        public bool CheckVIN(string vin)  //Примеры VIN c правильным девятым знаком, где сходится контрольная сумма: JS1GN7DA362110088, KNEFE222855188892
         {
             string pattern = @"^[A-HJ-NPR-Z\d]{13}\d{4}$";
 
