@@ -28,46 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textLogin = new System.Windows.Forms.TextBox();
+            this.textPassword = new System.Windows.Forms.TextBox();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(122, 199);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "VIN";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(62, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Логин:";
             // 
-            // textBox1
+            // label4
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 173);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(50, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Пароль:";
+            // 
+            // textLogin
+            // 
+            this.textLogin.Location = new System.Drawing.Point(124, 82);
+            this.textLogin.Name = "textLogin";
+            this.textLogin.Size = new System.Drawing.Size(100, 20);
+            this.textLogin.TabIndex = 2;
+            // 
+            // textPassword
+            // 
+            this.textPassword.Location = new System.Drawing.Point(124, 122);
+            this.textPassword.Name = "textPassword";
+            this.textPassword.Size = new System.Drawing.Size(100, 20);
+            this.textPassword.TabIndex = 3;
+            // 
+            // buttonLogin
+            // 
+            this.buttonLogin.Location = new System.Drawing.Point(102, 170);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogin.TabIndex = 4;
+            this.buttonLogin.Text = "Войти";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.buttonLogin);
+            this.Controls.Add(this.textPassword);
+            this.Controls.Add(this.textLogin);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Авторизация";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textLogin;
+        private System.Windows.Forms.TextBox textPassword;
+        private System.Windows.Forms.Button buttonLogin;
     }
 }
 
