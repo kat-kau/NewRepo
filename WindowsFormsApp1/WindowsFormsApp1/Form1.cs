@@ -60,6 +60,15 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Ошибка логина или пароля! Введите данные заново");
                     textLogin.Clear();
                     textPassword.Clear();
+                    if (Properties.Settings.Default.TextBox1Text == null)
+                    {
+                        Properties.Settings.Default.TextBox1Text = "1";
+                        Properties.Settings.Default.Save();
+                    } else if (Properties.Settings.Default.TextBox1Text.ToString == "1")
+                    {
+                        Properties.Settings.Default.TextBox1Text = "1";
+                        Properties.Settings.Default.Save();
+                    }
                     return false;
                 } else
                 {

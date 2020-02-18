@@ -26,5 +26,7 @@ namespace WindowsFormsApp1.Properties
                 return defaultInstance;
             }
         }
+
+        public object TextBox1Text { get; internal set; }
     }
 }
