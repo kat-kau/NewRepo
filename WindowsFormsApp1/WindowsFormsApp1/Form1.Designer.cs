@@ -89,6 +89,7 @@
             this.Controls.Add(this.label3);
             this.Name = "Form1";
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
