@@ -44,21 +44,27 @@ namespace WindowsFormsApp1
 
         }
 
+
+        //SELECT COUNT(*) FROM Users WHERE login LIKE 'inspector' AND password LIKE 'inspector'
         private void button1_Click(object sender, EventArgs e)
         {
-            string your_user_name = textLogin.ToString();
-            string your_password = textPassword.ToString();
+            string userName = textLogin.Text;
+            string password = textPassword.Text;
             using (SqlConnection con = new SqlConnection(@"Data Source = 303-17\SQLSERVER; Initial Catalog = GIBDD; Integrated Security = true"))
             {
                 con.Open();
-                string sqlcommand = "SELECT COUNT(login, password) FROM Users WHERE login=" + your_user_name + " AND password=" + your_password;
+                string sqlcommand = "SELECT COUNT(*) FROM Users WHERE login LIKE '"+ userName + "' AND password LIKE '"+ password + "'";
                 SqlCommand com = new SqlCommand(sqlcommand, con);
                 object value = com.ExecuteScalar();
                 con.Close();
-                if (value.ToString() == "0")
-                {
-                    MessageBox.Show("Успешная авторизация!");
-                }
+                
+                 if (value.ToString() != "0")
+                 {
+                     MessageBox.Show("Успешная авторизация!");
+                 } else
+                 {
+                     MessageBox.Show("Ошибка логина или пароля!");
+                 }
             }
         }
     }
