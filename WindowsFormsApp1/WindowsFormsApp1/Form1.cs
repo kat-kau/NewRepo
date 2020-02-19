@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using REG_MARK_LIB;
 using VIN_LIB;
+using System.Configuration;
 
 namespace WindowsFormsApp1
 {
@@ -27,25 +28,18 @@ namespace WindowsFormsApp1
 
         }
 
-        /*  private void button1_Click(object sender, EventArgs e)
-          {
-               Class1 vinLib = new Class1();
-               if (vinLib.CheckVIN(textBox1.Text))
-               {
-                   MessageBox.Show("VIN верный!");
-               } else
-               {
-                   MessageBox.Show("VIN не верный!");
-               } 
-          } */
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private bool autorization(string userName, string password)
+        //SELECT COUNT(*) FROM Users WHERE login LIKE 'inspector' AND password LIKE 'inspector'
+        private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(Properties.Settings.Default.attempts.ToString());
+            string userName = textLogin.Text;
+            string password = textPassword.Text;
             using (SqlConnection con = new SqlConnection(@"Data Source = 303-17\SQLSERVER; Initial Catalog = GIBDD; Integrated Security = true"))
             {
                 con.Open();
@@ -53,39 +47,27 @@ namespace WindowsFormsApp1
                 SqlCommand com = new SqlCommand(sqlcommand, con);
                 object value = com.ExecuteScalar();
 
-                con.Close();
-
-                if (value.ToString() == "0")
+                if (value.ToString() != "0")
                 {
-                    MessageBox.Show("Ошибка логина или пароля! Введите данные заново");
-                    textLogin.Clear();
-                    textPassword.Clear();
-                    if (Properties.Settings.Default.TextBox1Text == null)
-                    {
-                        Properties.Settings.Default.TextBox1Text = "1";
-                        Properties.Settings.Default.Save();
-                    } else if (Properties.Settings.Default.TextBox1Text.ToString == "1")
-                    {
-                        Properties.Settings.Default.TextBox1Text = "1";
-                        Properties.Settings.Default.Save();
-                    }
-                    return false;
-                } else
-                {
-                    return true;
+                    MessageBox.Show("Авторизация успешна!");
                 }
-                
-            }
-        }
+                else
+                {
+                    if (Properties.Settings.Default.time <= DateTime.UtcNow)
+                    {
+                        Properties.Settings.Default.attempts++;
+                        if (Properties.Settings.Default.attempts == 3)
+                        {
+                            Properties.Settings.Default.time = DateTime.UtcNow.AddMinutes(1);
+                            buttonLogin.Enabled = false;
+                            label5.Visible = true;
+                        }
 
-        //SELECT COUNT(*) FROM Users WHERE login LIKE 'inspector' AND password LIKE 'inspector'
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //http://www.cyberforum.ru/windows-forms/thread1238707.html
-            string userName = textLogin.Text;
-            string password = textPassword.Text;
-            if(!(autorization(userName, password))){
-
+                    }
+                    MessageBox.Show("Ошибка логина или пароля! Введите данные заново");
+                }
+                Properties.Settings.Default.Save();
+                con.Close();
             }
         }
 
@@ -94,6 +76,22 @@ namespace WindowsFormsApp1
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
+            MessageBox.Show(Properties.Settings.Default.attempts.ToString());
+            if (Properties.Settings.Default.attempts == 3)
+            {
+                buttonLogin.Enabled = false;
+                label5.Visible = true;
+            }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(Properties.Settings.Default.time <= DateTime.UtcNow)
+            {
+                Properties.Settings.Default.attempts = 0;
+                buttonLogin.Enabled = true;
+                label5.Visible = false;
+            }
+        }
     }
+}

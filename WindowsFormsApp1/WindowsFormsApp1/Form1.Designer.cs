@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textLogin = new System.Windows.Forms.TextBox();
             this.textPassword = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -79,9 +82,24 @@
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.button1_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(40, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(195, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Кнопка станет активна через минуту";
+            this.label5.Visible = false;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textPassword);
             this.Controls.Add(this.textLogin);
@@ -106,6 +124,8 @@
         private System.Windows.Forms.TextBox textLogin;
         private System.Windows.Forms.TextBox textPassword;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label5;
     }
 }
 
