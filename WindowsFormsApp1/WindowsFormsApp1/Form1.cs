@@ -33,11 +33,9 @@ namespace WindowsFormsApp1
         {
 
         }
-
-        //SELECT COUNT(*) FROM Users WHERE login LIKE 'inspector' AND password LIKE 'inspector'
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Properties.Settings.Default.attempts.ToString());
             string userName = textLogin.Text;
             string password = textPassword.Text;
             using (SqlConnection con = new SqlConnection(@"Data Source = 303-17\SQLSERVER; Initial Catalog = GIBDD; Integrated Security = true"))
@@ -50,6 +48,9 @@ namespace WindowsFormsApp1
                 if (value.ToString() != "0")
                 {
                     MessageBox.Show("Авторизация успешна!");
+                    Form ifrm = new Form2();
+                    ifrm.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -75,8 +76,7 @@ namespace WindowsFormsApp1
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-
-            MessageBox.Show(Properties.Settings.Default.attempts.ToString());
+            
             if (Properties.Settings.Default.attempts == 3)
             {
                 buttonLogin.Enabled = false;
