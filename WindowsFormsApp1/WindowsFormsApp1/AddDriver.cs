@@ -40,6 +40,19 @@ namespace WindowsFormsApp1
              using (SqlConnection con = new SqlConnection(@"Data Source = 303-17\SQLSERVER; Initial Catalog = GIBDD; Integrated Security = true"))
              {
                  con.Open();
+
+                try
+                {
+                    int id = int.Parse(textBox1.Text);
+                }
+                catch (FormatException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                
+
+
+
                  SqlCommand com = new SqlCommand("INSERT Drivers(id, name, surname, middlename, passport_serial, passport_number, address, address_life, company, jobname, phone, email, photo, description) VALUES (597, 'NorthWestern1', 'NorthWestern2','NorthWestern3', 6251,444466,'NorthWestern6','NorthWestern7','NorthWestern8','NorthWestern9','NorthWestern10','NorthWestern11','aaa@aaa.dd','001-happy-18.png')", con);
                  com.ExecuteNonQuery();
                  con.Close();
