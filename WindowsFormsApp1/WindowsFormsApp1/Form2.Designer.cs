@@ -46,6 +46,7 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,10 +58,11 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Добавить водителя";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(980, 12);
+            this.button2.Location = new System.Drawing.Point(953, 41);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(155, 23);
             this.button2.TabIndex = 1;
@@ -89,11 +91,11 @@
             this.Column12,
             this.Column13,
             this.Column14});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 53);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 79);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1123, 479);
+            this.dataGridView1.Size = new System.Drawing.Size(1096, 479);
             this.dataGridView1.TabIndex = 2;
             // 
             // Column1
@@ -108,28 +110,28 @@
             this.Column6.HeaderText = "Имя";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 85;
+            this.Column6.Width = 60;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Фамилия";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 85;
+            this.Column7.Width = 60;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Отчество";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 85;
+            this.Column2.Width = 60;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Серия паспорта";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 60;
+            this.Column3.Width = 50;
             // 
             // Column4
             // 
@@ -143,6 +145,7 @@
             this.Column15.HeaderText = "Индекс";
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
+            this.Column15.Width = 70;
             // 
             // Column5
             // 
@@ -186,9 +189,10 @@
             // Column13
             // 
             this.Column13.HeaderText = "Фото";
+            this.Column13.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
-            this.Column13.Width = 60;
+            this.Column13.Width = 40;
             // 
             // Column14
             // 
@@ -197,11 +201,23 @@
             this.Column14.ReadOnly = true;
             this.Column14.Width = 90;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1033, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Выйти";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 555);
+            this.ClientSize = new System.Drawing.Size(1121, 572);
+            this.ControlBox = false;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -233,5 +249,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewImageColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.Button button3;
     }
 }

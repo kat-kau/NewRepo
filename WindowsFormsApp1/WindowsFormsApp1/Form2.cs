@@ -5,14 +5,19 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Properties;
 
 namespace WindowsFormsApp1
 {
     public partial class Form2 : Form
     {
+        string imgPath = "imgs/";
+
         public Form2()
         {
             InitializeComponent();
@@ -20,7 +25,8 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Application.OpenForms[0].Show();
+            this.Close();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -47,13 +53,27 @@ namespace WindowsFormsApp1
                             dataGridView1.Rows[i].Cells[10].Value = dr[10].ToString();
                             dataGridView1.Rows[i].Cells[11].Value = dr[11].ToString();
                             dataGridView1.Rows[i].Cells[12].Value = dr[12].ToString();
-                            dataGridView1.Rows[i].Cells[13].Value = Image.FromFile(@"C:\Users\1\Desktop\Задание\Ресурсы\Сессия 2\drivers 2\photo\" + dr[13].ToString());
-                    dataGridView1.Rows[i].Cells[14].Value = dr[1].ToString();
+
+
+
+                    dataGridView1.Rows[i].Cells[13].Value = Image.FromFile(imgPath + dr[13].ToString());
                             i++;
                         
                 }
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form ifrm = new AddDriver();
+            ifrm.Show();
+            this.Hide();
         }
     }
 }
